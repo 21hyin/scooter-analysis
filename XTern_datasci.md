@@ -1,6 +1,5 @@
 Scooter Analysis
 ================
-Hannah Yin
 
 ``` r
 Scooters <- read.csv("D:/Docs/Downloads/2019XTern_scooters.csv", header = TRUE)
