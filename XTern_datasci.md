@@ -24,7 +24,7 @@ str(Scooters)
     ##  $ ycoordinate: num  0.776 0.805 0.784 0.804 0.782 ...
     ##  $ power_level: int  0 2 1 0 4 2 4 5 4 5 ...
 
-To identify popular scooter locations, I graphed the distribution of x and y coordinate separately and plotted the then in 2D:
+To identify popular scooter locations, I graphed the distribution of x and y coordinate separately and plotted them in 2D:
 
 ``` r
 label <- c("-0.3", "-0.2", "-0.1", "0", "0.1", "0.2", "0.3", "0.4", "0.5", "0.6", 
@@ -214,9 +214,9 @@ Power_among_hubs
     ## [18,] 4388 4248 4245 4160 4284 4343
     ## [19,] 4388 4248 4245 4160 4284 4343
 
-Given that each cluster had scooters of different power levels within two orders of magnitude and that clusters had the same distribution, there is no mathematical need for the bus to prioritize one cluster over another.
+Given that clusters have the same distribution of scooters with different power levels, there is no need for the bus to prioritize one cluster over another based on power levels.
 
-Having the mega charging bus travel to all clusters in the minimum amount of time to maximize efficieny means the bus should travel a minimum distance, since *d**i**s**t**a**n**c**e* = *s**p**e**e**d* \* *t**i**m**e*. Interpreting the mean coordinates of each cluster as a vertex in a graph would make it a traveling salesman problem, assuming for the moment that the roads the bus travels on follows the edges between vertices. One process for finding an optimum solution involves construct a minimum spanning tree (MST) out of the vertices, running a preorder traversal on the MST starting from the vertex corresponding to the cluster containing the scooter closest to the parked bus, and reporting the order of the vertices visited. Methods in the TSP library exist that do this process, so I didn't have to implement it from scratch.
+Having the mega charging bus travel to all clusters in the minimum amount of time to maximize efficieny means the bus should travel a minimum distance, since distance = speed * time. Interpreting the mean coordinates of each cluster as a vertex in a graph would make it a traveling salesman problem, assuming for the moment that the roads the bus travels on follows the edges between vertices. One process for finding an optimum solution involves construct a minimum spanning tree (MST) out of the vertices, running a preorder traversal on the MST starting from the vertex corresponding to the cluster containing the scooter closest to the parked bus, and reporting the order of the vertices visited. Methods in the TSP library exist that do this process, so I didn't have to implement it from scratch.
 
 ``` r
 library(TSP)
